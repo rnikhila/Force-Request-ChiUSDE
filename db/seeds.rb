@@ -7,7 +7,29 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
-student_requests = []
+student_requests = [{:uin => '126003824', :name => 'Mo Li', 
+                     :major => 'Computer Engineering - CEEN', :classification => 'G7', :minor => 'CECN', :email => 'king_lm@tamu.edu', :phone => '9797797697', 
+                     :expected_graduation => '2019 Fall', :request_semester => '2019 Fall',
+                     :course_id => '026', :section_id => '101', :notes => 'Requirement for graduation.',:priority => 'Very High' , :state => 'Active'},
+                     {:uin => '126003824', :name => 'Mo Li', 
+                      :major => 'Computer Engineering - CEEN', :classification => 'G7', :minor => 'CECN', :email => 'king_lm@tamu.edu', :phone => '9797769279', 
+                      :expected_graduation => '2019 Fall', :request_semester => '2019 Fall',
+                      :course_id => '026', :section_id => '101', :notes => 'I need this course as my summer intern will deal with this.',:priority => 'Very High' , :state => 'Active'},
+                      {:uin => '126003824', :name => 'Mo Li', 
+                      :major => 'Computer Engineering - CEEN', :classification => 'G7', :minor => 'CECN', :email => 'king_lm@tamu.edu', :phone => '9793477979', 
+                      :expected_graduation => '2019 Fall', :request_semester => '2019 Fall',
+                      :course_id => '027', :section_id => '101', :notes => 'My research advisor has recommended this course.' ,:priority => 'Very High', :state => 'Active'},
+                      
+                      {:uin => '222111333', :name => 'Jiechen Zhong', 
+                      :major => 'CEEN', :classification => 'G8', :minor => 'MATH', :email => 'chen0209app@tamu.edu', :phone => '9797797900', 
+                      :expected_graduation => '2019 Fall', :request_semester => '2019 Fall',
+                      :course_id => '026', :section_id => '101', :notes => 'I am interested in CS026 as it is my field of research.' ,:priority => 'Very High', :state => 'Active'},
+                      {:uin => '222111333', :name => 'Jiechen Zhong', 
+                      :major => 'CEEN', :classification => 'G8', :minor => 'PHYS', :email => 'chen0209app@tamu.edu', :phone => '9797797900', 
+                      :expected_graduation => '2019 Fall', :request_semester => '2019 Fall',
+                      :course_id => '028', :section_id => '101', :notes => 'I need this subject to graduate.',:priority => 'Very High' , :state => 'Active'},
+                  ]
+
 
 majors = [                 
             {:major_id => 'Computer Science'},         
@@ -145,6 +167,8 @@ majors = [
             
 admins = [{:uin => '123456789', :name => 'admin', :password => 'tamu2017', :email => '123456789@tamu.edu'},
           {:uin => '987654321', :name => 'admin2', :password => 'tamu2017', :email => '123456780@tamu.edu'}]
+
+
 limits = [{:classification => 'G7', "Very High".to_sym => '99', :High => '99', :Normal => '99', :Low => '99', "Very Low".to_sym => '99'}, 
           {:classification => 'U1', "Very High".to_sym => '99', :High => '99', :Normal => '99', :Low => '99', "Very Low".to_sym => '99'},
           {:classification => 'U2', "Very High".to_sym => '99', :High => '99', :Normal => '99', :Low => '99', "Very Low".to_sym => '99'},
@@ -153,7 +177,12 @@ limits = [{:classification => 'G7', "Very High".to_sym => '99', :High => '99', :
           {:classification => 'U5', "Very High".to_sym => '99', :High => '99', :Normal => '99', :Low => '99', "Very Low".to_sym => '99'},
           {:classification => 'G8', "Very High".to_sym => '99', :High => '99', :Normal => '99', :Low => '99', "Very Low".to_sym => '99'}]
 
-students = []
+students = [{uin: "126003824", password: "123123", major: "Computer Engineering - CEEN", classification: "G7-Graduate, Master's Level", name: "Mo Li", email: "king_lm@tamu.edu"},
+            {uin: "123123123", password: "321", major: "Computer Engineering - CEEN", classification: "G8-Graduate", name: "Mian Qin", email: "celery1124@tamu.edu"},
+            {uin: "222111333", password: "zxc", major: "Computer Engineering - CEEN", classification: "G7-Graduate, Master's Level", name: "Jiechen Zhong", email: "chen0209app@tamu.edu"},
+            ]
+
+
 
 limits.each do |limit|
   Limit.create!(limit)

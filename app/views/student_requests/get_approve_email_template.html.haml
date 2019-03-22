@@ -1,6 +1,6 @@
 = include_gon 
 %h1 Edit email template
-= form_tag(students_requests_edit_email_template_path(), method: "post") do
+= form_tag(students_requests_edit_approve_email_template_path(), method: "post") do
   = javascript_include_tag "/app/assets/javascripts/default_template.js"
   = text_area 'email_template', nil, rows: 10, cols: 200, placeholder: 'Enter message here', class: 'notes', id: "defaulttemplate"
   = submit_tag 'Submit', :id => 'submit_limit'

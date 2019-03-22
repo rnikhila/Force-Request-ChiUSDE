@@ -23,6 +23,8 @@ class StudentMailer < ActionMailer::Base
         @req =req
         @message = message
         mail(:to => @student.email, :subject => "Updates on Your Force Request")
-    
     end
+
+    
+
 end

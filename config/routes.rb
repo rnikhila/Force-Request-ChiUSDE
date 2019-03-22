@@ -28,8 +28,10 @@ Rails.application.routes.draw do
   get 'student_requests/set_request_limit' => 'student_requests#set_request_limit'
   post 'students_requests/createlimits' => 'student_requests#createlimits'
   
-  put 'student_requests/get_email_template' => 'student_requests#get_email_template'
-  post 'students_requests/edit_email_template' => 'student_requests#edit_email_template'
+  put 'student_requests/get_approve_email_template' => 'student_requests#get_approve_email_template'
+  put 'student_requests/get_reject_email_template' => 'student_requests#get_reject_email_template'
+  post 'students_requests/edit_approve_email_template' => 'student_requests#edit_approve_email_template'
+  post 'students_requests/edit_reject_email_template' => 'student_requests#edit_reject_email_template'
   
   delete 'student_requests/deleteall' => 'student_requests#deleteall'
   get 'student_requests/viewlogs' => 'student_requests#view_logs'

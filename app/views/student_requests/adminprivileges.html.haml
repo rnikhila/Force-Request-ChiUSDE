@@ -12,7 +12,9 @@
 %br
 = link_to '<button type="button" class="regularbutton">Set Force Request Limit</button>'.html_safe, student_requests_set_request_limit_path
 %br
-= link_to '<button type="button" class="regularbutton">Edit Email Template</button>'.html_safe, student_requests_get_email_template_path, :method => :put
+= link_to '<button type="button" class="regularbutton">Edit Approval Email Template</button>'.html_safe, student_requests_get_approve_email_template_path, :method => :put
+%br
+= link_to '<button type="button" class="regularbutton">Edit Reject Email Template</button>'.html_safe, student_requests_get_reject_email_template_path, :method => :put
 %br
 = link_to '<button type="button" class="regularbutton">Cancel</button>'.html_safe, student_requests_adminview_path
 

@@ -445,10 +445,19 @@ class StudentRequestsController < ApplicationController
       #redirect_to :controller => 'put', :action => 'student_requests_multiupdate'
     end
     # "/home/ec2-user/environment/Force-Request-ChiUSDE/app/views/student_mailer/email_template.text.erb"
-    path = "./app/views/student_mailer/email_template.text.erb"  
+    if(selected_state == StudentRequest::APPROVED_STATE)
+    path = "./app/views/student_mailer/email_template_approve.text.erb"  
     @body_message = ""
     @body_message = IO.read(path)
     gon.body_message = @body_message
+    end
+
+    if(selected_state == StudentRequest::REJECTED_STATE)
+    path = "./app/views/student_mailer/email_template_reject.text.erb"  
+    @body_message = ""
+    @body_message = IO.read(path)
+    gon.body_message = @body_message
+    end
   end
   
   def multiupdate
@@ -571,16 +580,22 @@ class StudentRequestsController < ApplicationController
     redirect_to student_requests_adminprivileges_path
   end
   
-  def get_email_template
-    path = "./app/views/student_mailer/email_template.text.erb"  
+  def get_approve_email_template
+    path = "./app/views/student_mailer/email_template_approve.text.erb"  
+    @body_template = ""
+    @body_template = IO.read(path)
+    gon.body_template = @body_template      
+  end
+
+  def get_reject_email_template
+    path = "./app/views/student_mailer/email_template_reject.text.erb"  
     @body_template = ""
     @body_template = IO.read(path)
     gon.body_template = @body_template
-      
   end
   # "/home/ec2-user/environment/Force-Request-ChiUSDE/app/views/student_mailer/email_template.text.erb"
-  def edit_email_template
-    path = "./app/views/student_mailer/email_template.text.erb"   
+  def edit_approve_email_template
+    path = "./app/views/student_mailer/email_template_approve.text.erb"   
     body = ""
     template = params[:email_template]
     body << template[0]
@@ -591,6 +606,18 @@ class StudentRequestsController < ApplicationController
     redirect_to student_requests_adminprivileges_path
   end
   
+  def edit_reject_email_template
+    path = "./app/views/student_mailer/email_template_reject.text.erb"   
+    body = ""
+    template = params[:email_template]
+    body << template[0]
+    File.open(path, "w+") do |f|
+      f.write(body)
+    end
+    flash[:notice] = "Email template was successfully updated"
+    redirect_to student_requests_adminprivileges_path
+  end
+
   def view_logs
     request_id = params[:id]
     @logs = Log.where(:request_id => request_id).order('timestamp DESC')
